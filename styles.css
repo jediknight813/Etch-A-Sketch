@@ -1,6 +1,6 @@
 .squaregrid {
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
     margin: 2px;
     display: grid;
     grid-template: repeat(16, 1fr) / repeat(16, 1fr);
@@ -18,8 +18,8 @@
 
 
 .biggersquaregrid {
-    width: 800px;
-    height: 800px;
+    width: 600px;
+    height: 600px;
     margin: 2px;
     display: grid;
     grid-template: repeat(64, 1fr) / repeat(64, 1fr);
@@ -32,8 +32,8 @@
 
 
 .bigsquaregrid {
-    width: 800px;
-    height: 800px;
+    width: 600px;
+    height: 600px;
     margin: 2px;
     display: grid;
     grid-template: repeat(32, 1fr) / repeat(32, 1fr);
