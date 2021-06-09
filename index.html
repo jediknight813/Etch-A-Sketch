@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <style>
+        body {
+            background: rgb(85, 81, 81);
+        }
+    </style>
+
+    <h1 class=".background"> ETCH-A-SKETCH
+
+        <h2>
+        <button id="button">Reset</button>
+        <button id="1616Grid"> 16 by 16 Grid </button>
+        <button id="3232Grid"> 32 by 32 Grid </button>
+        <button id="6464Grid"> 64 by 64 Grid </button>
+        </h2>
+
+        <h3>
+            <button onclick="change_color('red')" id="red_color"> red </button>
+            <button onclick="change_color('blue')" id="blue_color"> blue </button>
+            <button onclick="change_color('black')" id="black_color"> black </button>
+        </h3>
+    </h1>
+
+
+    <div id="#grid-container" class="squaregrid"> </div>
+    
+    <h3>by connor moyer</h3>
+    
+
+        <script>
+        const gridContainer = document.querySelector('#grid-container');
+        var color = "black"
+
+
+        var create_grid_number = 257
+
+
+       function create_new_grid() {
+        while (create_grid_number > 1) {
+            createGrid()
+            create_grid_number -= 1 
+            }
+        }
+
+        
+        create_new_grid()
+
+        function sixteenbysixteengrid() {
+            document.getElementById("#grid-container").classList.remove('bigsquaregrid')
+            document.getElementById("#grid-container").classList.remove('biggersquaregrid')
+            document.getElementById("#grid-container").classList.add('squaregrid')
+            create_grid_number = 257
+            create_new_grid()
+        }
+
+        create_new_grid()
+
+        function thirtytwbythirtytwogrid() {
+            document.getElementById("#grid-container").classList.remove('squaregrid')
+            document.getElementById("#grid-container").classList.remove('biggersquaregrid')
+            document.getElementById("#grid-container").classList.add('bigsquaregrid')
+            create_grid_number = 1025
+            create_new_grid()
+        }   
+
+        function sixtyfourbysixtyfourgrid() {
+            document.getElementById("#grid-container").classList.remove('squaregrid')
+            document.getElementById("#grid-container").classList.remove('bigsquaregrid')
+            document.getElementById("#grid-container").classList.add('biggersquaregrid')
+            create_grid_number = 4097
+            create_new_grid()
+        }
+
+
+        function reset_black_grid() {
+            var number = 0
+            while (number < 40960) {
+                var x = document.getElementsByClassName('black')
+                x[number].parentNode.removeChild(x[number]);
+
+                number += 1
+                reset_black_grid()
+            }
+        }
+
+        function reset_red_grid() {
+            var number = 0
+            while (number < 40960) {
+                var x = document.getElementsByClassName('red')
+                x[number].parentNode.removeChild(x[number]);
+
+                number += 1
+                reset_red_grid()
+            }
+        }
+
+        function reset_blue_grid() {
+            var number = 0
+            while (number < 40960) {
+                var x = document.getElementsByClassName('blue')
+                x[number].parentNode.removeChild(x[number]);
+
+                number += 1
+                reset_blue_grid()
+            }
+        }
+
+
+
+
+        function reset_cell_grid() {
+            var number = 0
+            while (number < 100) {
+                var b = document.getElementsByClassName("cell")
+                b[number].parentNode.removeChild(b[number]);
+                number += 1
+                reset_cell_grid()
+            }
+        }
+
+
+        function clean_black_grid() {
+            var number = 0
+            console.log(number)
+            while (number < 4096) {
+                var x = document.getElementsByClassName('black')
+                x[number].className = "cell"
+
+                number += 1
+                clean_black_grid()
+            }
+        }
+
+
+        function clean_blue_grid() {
+            var number = 0
+            while (number < 4096) {
+                var x = document.getElementsByClassName('blue')
+                x[number].className = "cell"
+
+                number += 1
+                clean_blue_grid()
+            }
+        }
+
+        function clean_red_grid() {
+            var number = 0
+            while (number < 4096) {
+                var x = document.getElementsByClassName('red')
+                x[number].className = "cell"
+
+                number += 1
+                clean_red_grid()
+            }
+        }
+
+
+
+
+        function createGrid() {
+            var div = document.createElement("div");
+            div.className = "cell"
+            div.id = "#cell_for_grid"
+            div.addEventListener("mouseover", mouseOver, true);
+            document.getElementById("#grid-container").appendChild(div)
+        }
+
+
+        function change_color(new_color) {
+            color = new_color
+        }
+
+        function mouseOver()
+        {  
+            this.className = color
+        }
+
+
+        document.getElementById("1616Grid").addEventListener("click", reset_black_grid);
+        document.getElementById("1616Grid").addEventListener("click", reset_red_grid);
+        document.getElementById("1616Grid").addEventListener("click", reset_blue_grid);
+        document.getElementById("1616Grid").addEventListener("click", reset_cell_grid);
+        document.getElementById("1616Grid").addEventListener("click", sixteenbysixteengrid);
+
+        document.getElementById("3232Grid").addEventListener("click", reset_black_grid);
+        document.getElementById("3232Grid").addEventListener("click", reset_red_grid);
+        document.getElementById("3232Grid").addEventListener("click", reset_blue_grid);
+        document.getElementById("3232Grid").addEventListener("click", reset_cell_grid);
+        document.getElementById("3232Grid").addEventListener("click", thirtytwbythirtytwogrid);
+
+
+        document.getElementById("6464Grid").addEventListener("click", reset_black_grid);
+        document.getElementById("6464Grid").addEventListener("click", reset_red_grid);
+        document.getElementById("6464Grid").addEventListener("click", reset_blue_grid);
+        document.getElementById("6464Grid").addEventListener("click", reset_cell_grid);
+        document.getElementById("6464Grid").addEventListener("click", sixtyfourbysixtyfourgrid);
+
+
+        document.getElementById("button").addEventListener("click", clean_black_grid);
+        document.getElementById("button").addEventListener("click", clean_red_grid);
+        document.getElementById("button").addEventListener("click", clean_blue_grid);
+
+        </script>
+
+    </div>
+
+
+
+    </h1>
+
+</body>
+</html>
