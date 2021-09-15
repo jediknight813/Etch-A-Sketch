@@ -1,4 +1,4 @@
-A etch-a-sketch website i made for the oden project.
+A etch-a-sketch website i made for the odin project.
 
 Link to the website: https://jediknight813.github.io/Etch-A-Sketch/
 
